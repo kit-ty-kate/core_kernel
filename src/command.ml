@@ -1443,7 +1443,7 @@ module Base = struct
           Map.fold ts ~init:(return []) ~f:(fun ~key:name ~data:t init ->
             map2 init t ~f:(fun init value ->
               Option.fold value ~init ~f:(fun init value -> (name, value) :: init)))
-          |> map ~f:(function
+          |> map ~f:(fun value : b -> match value with
             | _ :: _ :: _ as passed ->
               die
                 !"Cannot pass more than one of these: \n\
