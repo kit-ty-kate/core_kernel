@@ -4,13 +4,12 @@
 
 static intnat minor_words(void)
 {
-  return (intnat) (caml_stat_minor_words +
-            (double) (caml_young_end - caml_young_ptr));
+  return (intnat) (0);
 }
 
 static intnat promoted_words(void)
 {
-  return ((intnat) caml_stat_promoted_words);
+  return ((intnat) 0);
 }
 
 CAMLprim value core_kernel_gc_minor_words(value unit __attribute__((unused)))
@@ -20,7 +19,7 @@ CAMLprim value core_kernel_gc_minor_words(value unit __attribute__((unused)))
 
 static intnat major_words(void)
 {
-  return (intnat) (caml_stat_major_words + (double) caml_allocated_words);
+  return (intnat) (0);
 }
 
 CAMLprim value core_kernel_gc_major_words(value unit __attribute__((unused)))
@@ -35,32 +34,32 @@ CAMLprim value core_kernel_gc_promoted_words(value unit __attribute__((unused)))
 
 CAMLprim value core_kernel_gc_minor_collections(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_minor_collections);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_major_collections(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_major_collections);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_heap_words(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_heap_wsz);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_heap_chunks(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_heap_chunks);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_compactions(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_compactions);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_top_heap_words(value unit __attribute__((unused)))
 {
-  return Val_long(caml_stat_top_heap_wsz);
+  return Val_long(0);
 }
 
 CAMLprim value core_kernel_gc_major_plus_minor_words(value unit __attribute__((unused)))
